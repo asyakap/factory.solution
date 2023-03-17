@@ -14,7 +14,7 @@
   <p>No machines have been added yet</p>
 } 
 <ul>
-  @foreach (Machine machine in Model["movies"])
+  @foreach (Machine machine in Model["machines"])
   {
     <li>@Html.ActionLink(@machine.Title, "Details", "Machines", new { id = @machine.MachineId})</li>
   }

@@ -54,13 +54,13 @@ namespace Factory.Controllers
 
     public ActionResult AddEngineer(int id)
     {
-      Machine thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
+      Machine thisMachine = _db.Machines.FirstOrDefault(Machines => Machines.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View(thisMachine);
     }
 
     [HttpPost]
-    public ActionResult AddCustomer(Machine machine, int engineerId)
+    public ActionResult AddEngineer(Machine machine, int engineerId)
     {
 #nullable enable
       EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.EngineerId == engineerId && join.MachineId == machine.MachineId));
