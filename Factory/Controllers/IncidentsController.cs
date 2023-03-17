@@ -24,7 +24,7 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       Incident thisIncident = _db.Incidents
-          .Include(incident => incident.JoinEntities)
+          .Include(incident => incident.JoinEntities1)
           .ThenInclude(join => join.Machine)
           .FirstOrDefault(incident => incident.IncidentId == id);
       return View(thisIncident);

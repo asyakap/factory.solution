@@ -14,7 +14,7 @@ namespace Factory.Models
         [Required(ErrorMessage = "The incident's status can't be empty!")]
         public IncidentStatus Status { get; set; }
         public DateTime Date { get; set; }
-        public List<IncidentMachine> JoinEntities { get; set; }
+        public List<IncidentMachine> JoinEntities1 { get; set; }
     }
 
     public enum IncidentStatus

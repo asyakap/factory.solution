@@ -32,7 +32,20 @@
   }
 </ul>
 
+<h4>Incidents</h4>
+@if (Model["incidents"].Length == 0)
+{
+  <p>No incidents have been added yet</p>
+} 
+<ul>
+  @foreach (Incident incident in Model["incidents"])
+  {
+    <li>@Html.ActionLink(@incident.Description, "Details", "Incidents", new { id = @incident.IncidentId})</li>
+  }
+</ul>
+
 <hr>
 
 <p>@Html.ActionLink("Manage machines", "Index", "Machines")</p> 
 <p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
+<p>@Html.ActionLink("Manage incidents", "Index", "Incidents")</p>
