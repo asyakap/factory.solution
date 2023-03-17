@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -12,6 +13,8 @@ namespace Factory.Models
         
         [Required(ErrorMessage = "The machine's Status can't be empty!")]
         public Status Status { get; set; }
+
+        public DateTime InspectionDate { get; set; }
 
         public List<EngineerMachine> JoinEntities { get; set; }
     }
