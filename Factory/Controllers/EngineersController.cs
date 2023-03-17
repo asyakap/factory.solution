@@ -30,11 +30,17 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Create(Engineer engineer)
     {
-      _db.Engineers.Add(engineer);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if (!ModelState.IsValid)
+        {
+          return View(engineer);
+        }
+      else
+        {
+          _db.Engineers.Add(engineer);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
     }
-
     public ActionResult Edit(int id)
     {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);

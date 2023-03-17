@@ -11,11 +11,11 @@
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>There are currently no engineers who can fix this machine</p>
+  <p>There are currently no engineers who can repair this machine</p>
 }
 else
 {
-  <h4>Engineers that can fix this machine:</h4>
+  <h4>Engineers that can repair this machine:</h4>
   <ul>
   @foreach(EngineerMachine join in Model.JoinEntities)
   {
