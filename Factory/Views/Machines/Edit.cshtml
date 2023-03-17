@@ -2,6 +2,7 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models
 @model Factory.Models.Machine
 
 <h2>Edit</h2>
@@ -14,6 +15,9 @@
 
     @Html.LabelFor(model => model.Title)
     @Html.EditorFor(model => model.Title)
+    @Html.LabelFor(model => model.Status)
+    @Html.DropDownListFor(model => model.Status, 
+    new SelectList(Enum.GetValues(typeof(Status))))
 
     <input type="submit" value="Save" />
 }
