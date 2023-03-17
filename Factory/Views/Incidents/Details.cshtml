@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Incident
+
+<h2>Incident Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3> 
+<h3>@Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(model => model.Status)</h3>
+<h3>@Html.DisplayNameFor(model => model.Date): @Model.Date.ToString("d")</h3>
+
+@if(@Model.JoinEntities1.Count == 0)
+{
+  <p>No machine added to this incident</p>
+}
+else
+{
+  <h4>This issue is seen with the following machines:</h4>
+  <ul>
+    @foreach(IncidentMachine join in Model.JoinEntities1)
+    {
+      <li>Incidents: @join.Incident.Description</li>
+      @using (Html.BeginForm("DeleteJoin", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.IncidentMachineId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+}
+
+<br>
+<div id="nav-links">
+  <p>@Html.ActionLink("Edit Incident", "Edit", new { id = Model.IncidentId }) | @Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.IncidentId }) | @Html.ActionLink("Delete Incident", "Delete", new { id = Model.IncidentId })</p>
+  <p>@Html.ActionLink("Back to the List of Incidents", "Index")</p>
+</div>

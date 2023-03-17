@@ -55,7 +55,7 @@ A website of a Dr. Sillystringz's Factory using MySQL and EF Core. User can add/
 
 ## Known Bugs
 
-No known bugs
+* Edit Incident/Add a Machine/Delete Incident functionality is not implemented yet
 
 ## License
 Enjoy the site! If you have questions or suggestions for fixing the code, please contact me!

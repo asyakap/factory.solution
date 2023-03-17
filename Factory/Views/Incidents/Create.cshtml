@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Incident
+
+
+<h4>Add a new incident</h4>
+<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  @Html.LabelFor(model => model.Status)
+  @Html.DropDownListFor(model => model.Status, 
+  new SelectList(Enum.GetValues(typeof(IncidentStatus))))
+  @Html.LabelFor(model => model.Date)
+  @Html.TextBoxFor(model => model.Date, new { placeholder = "MM/DD/YYYY" })
+
+  <input type="submit" value="Add new Incident" />
+}
+
+<br>
+<div id="nav-links">
+  <p>@Html.ActionLink("Back to the List of Incidents", "Index")</p>
+</div>
