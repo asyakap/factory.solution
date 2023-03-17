@@ -2,15 +2,20 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models
 @model Factory.Models.Engineer
 
 
 <h4>Add a new engineer</h4>
 <p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
+  @Html.LabelFor(model => model.Status)
+  @Html.DropDownListFor(model => model.Status, 
+  new SelectList(Enum.GetValues(typeof(EngineerStatus))))
 
   <input type="submit" value="Add new Engineer" />
 }
