@@ -32,7 +32,7 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.CustomerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Title");
       return View();
     }
 

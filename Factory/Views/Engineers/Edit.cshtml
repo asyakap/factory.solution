@@ -18,6 +18,8 @@
   @Html.LabelFor(model => model.Status)
   @Html.DropDownListFor(model => model.Status, 
   new SelectList(Enum.GetValues(typeof(EngineerStatus))))
+  @Html.LabelFor(model => model.License)
+  @Html.TextBoxFor(model => model.License, new { placeholder = "MM/DD/YYYY" })
   
   <input type="submit" value="Save" />
 }
